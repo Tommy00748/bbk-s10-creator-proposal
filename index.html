@@ -1,13 +1,1113 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>步步高 S10 晚辅心智达人内容共创方案</title>
-  <meta http-equiv="refresh" content="0; url=./步步高S10达人内容共创方案-网页版.html">
-  <link rel="canonical" href="./步步高S10达人内容共创方案-网页版.html">
+  <style>
+    :root {
+      --bbk-blue: #0b5fe8;
+      --blue-700: #0747b8;
+      --blue-100: #eaf2ff;
+      --ink: #111827;
+      --muted: #5f6b7a;
+      --line: #dbe4f0;
+      --paper: #ffffff;
+      --soft: #f6f9fd;
+      --green: #16a083;
+      --amber: #f6a623;
+      --red: #d94d4d;
+      --shadow: 0 18px 50px rgba(17, 24, 39, .08);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #ffffff 0%, #f7faff 44%, #ffffff 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, .92);
+      border-bottom: 1px solid rgba(219, 228, 240, .9);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 220px;
+      font-weight: 800;
+      color: var(--bbk-blue);
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--bbk-blue);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2px;
+      align-items: center;
+      overflow-x: auto;
+      white-space: nowrap;
+      color: #344054;
+      font-size: 14px;
+    }
+
+    .nav a {
+      padding: 8px 10px;
+      border-radius: 7px;
+    }
+
+    .nav a:hover {
+      background: var(--blue-100);
+      color: var(--bbk-blue);
+    }
+
+    .print-btn {
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      padding: 8px 12px;
+      border-radius: 7px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 74px 0 42px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(11,95,232,.08), rgba(22,160,131,.07) 44%, rgba(255,255,255,0) 70%),
+        #fff;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 66px);
+      line-height: 1.05;
+      margin: 0 0 22px;
+      letter-spacing: 0;
+      max-width: 820px;
+      word-break: keep-all;
+    }
+
+    .hero-lead {
+      color: #354052;
+      font-size: 20px;
+      line-height: 1.8;
+      max-width: 760px;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 7px;
+      padding: 12px 16px;
+      font-weight: 800;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .btn.primary {
+      background: var(--bbk-blue);
+      color: #fff;
+      border-color: var(--bbk-blue);
+      box-shadow: 0 10px 24px rgba(11,95,232,.22);
+    }
+
+    .hero-media {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-media img {
+      border-radius: 6px;
+      border: 1px solid #edf2f8;
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .meta {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .meta strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.2;
+      color: var(--bbk-blue);
+      margin-bottom: 4px;
+    }
+
+    .meta span { color: var(--muted); font-size: 13px; }
+
+    section {
+      padding: 66px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .section-no {
+      color: var(--bbk-blue);
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
+      line-height: 1.16;
+      margin: 6px 0 0;
+      letter-spacing: 0;
+    }
+
+    .section-summary {
+      color: var(--muted);
+      font-size: 18px;
+      margin: 6px 0 0;
+      max-width: 740px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .wide-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(17,24,39,.04);
+    }
+
+    .panel h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .panel p,
+    .panel li {
+      color: #344054;
+      font-size: 16px;
+    }
+
+    .panel p { margin: 0 0 12px; }
+    .panel ul { margin: 12px 0 0; padding-left: 20px; }
+    .panel li + li { margin-top: 8px; }
+
+    .quote {
+      border-left: 5px solid var(--bbk-blue);
+      background: var(--blue-100);
+      padding: 20px 22px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 21px;
+      font-weight: 900;
+      line-height: 1.5;
+      color: var(--blue-700);
+    }
+
+    .three-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .strategy-card {
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--bbk-blue);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 22px;
+      min-height: 190px;
+    }
+
+    .strategy-card:nth-child(2) { border-top-color: var(--green); }
+    .strategy-card:nth-child(3) { border-top-color: var(--amber); }
+
+    .strategy-card h3 {
+      margin: 0 0 10px;
+      font-size: 23px;
+    }
+
+    .strategy-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .flow-step {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      position: relative;
+    }
+
+    .flow-step strong {
+      color: var(--bbk-blue);
+      font-size: 15px;
+    }
+
+    .flow-step h3 {
+      font-size: 24px;
+      margin: 6px 0 10px;
+    }
+
+    .flow-step p { color: var(--muted); margin: 0; }
+
+    .asset-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .asset-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(17,24,39,.04);
+    }
+
+    .asset-card img { aspect-ratio: 16 / 9; object-fit: cover; width: 100%; }
+    .asset-caption { padding: 14px 16px; color: var(--muted); font-size: 14px; }
+    .asset-caption strong { color: var(--ink); display: block; font-size: 16px; margin-bottom: 4px; }
+
+    .platform {
+      display: grid;
+      grid-template-columns: 7fr 3fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 22px;
+    }
+
+    .platform-card {
+      border-radius: var(--radius);
+      padding: 26px;
+      color: #fff;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .platform-card.douyin {
+      background: linear-gradient(135deg, #0f172a, #0b5fe8);
+    }
+
+    .platform-card.xhs {
+      background: linear-gradient(135deg, #c92d2d, #f6a623);
+    }
+
+    .platform-card h3 {
+      font-size: 30px;
+      margin: 0 0 12px;
+    }
+
+    .platform-card p {
+      margin: 0;
+      color: rgba(255,255,255,.86);
+      font-size: 17px;
+    }
+
+    .platform-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 6px;
+      background: rgba(255,255,255,.14);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .matrix-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      min-height: 260px;
+      position: relative;
+    }
+
+    .matrix-card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
+
+    .matrix-card .role {
+      color: var(--bbk-blue);
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .matrix-card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .scale-box {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .scale-box div {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .scale-box strong {
+      display: block;
+      color: var(--bbk-blue);
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .topic-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .topic {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      background: #fff;
+      font-weight: 700;
+      color: #263241;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+      counter-reset: step;
+    }
+
+    .time-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .time-card:before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: block;
+      color: rgba(11,95,232,.16);
+      font-size: 72px;
+      line-height: .8;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .time-card h3 {
+      margin: 0 0 10px;
+      font-size: 25px;
+    }
+
+    .time-card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .program {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 22px;
+      margin-top: 22px;
+      align-items: stretch;
+    }
+
+    .tiers {
+      display: grid;
+      gap: 12px;
+    }
+
+    .tier {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .tier strong {
+      color: var(--bbk-blue);
+      font-size: 18px;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .support {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .support h3 {
+      margin: 0 0 10px;
+      color: var(--bbk-blue);
+    }
+
+    .review-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .review-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .risk {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .risk strong {
+      display: block;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+
+    .finale {
+      background: var(--ink);
+      color: #fff;
+      border-bottom: 0;
+    }
+
+    .finale .section-summary,
+    .finale p,
+    .finale li {
+      color: rgba(255,255,255,.78);
+    }
+
+    .finale h2 { color: #fff; }
+    .finale .quote {
+      color: #fff;
+      background: rgba(11,95,232,.32);
+      border-left-color: #66a3ff;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .section-head,
+      .content-grid,
+      .wide-grid,
+      .platform,
+      .matrix,
+      .program,
+      .support-grid,
+      .risk-grid,
+      .three-cards,
+      .asset-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .meta-row,
+      .flow,
+      .timeline,
+      .scale-box,
+      .topic-list,
+      .review-list {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        height: auto;
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav { width: 100%; }
+      .print-btn { display: none; }
+      .hero { padding-top: 44px; }
+    }
+
+    @media print {
+      .topbar, .hero-actions { display: none; }
+      body { background: #fff; }
+      section, .hero { break-inside: avoid; }
+      .panel, .strategy-card, .matrix-card, .time-card, .support, .risk { box-shadow: none; }
+    }
+  </style>
 </head>
 <body>
-  <p><a href="./步步高S10达人内容共创方案-网页版.html">打开步步高 S10 晚辅心智达人内容共创方案</a></p>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">S10</span>
+        <span>达人内容共创方案</span>
+      </a>
+      <nav class="nav" aria-label="页面导航">
+        <a href="#why">为什么做</a>
+        <a href="#message">传播主线</a>
+        <a href="#platform">平台分工</a>
+        <a href="#matrix">达人矩阵</a>
+        <a href="#content">内容策略</a>
+        <a href="#timeline">90天节奏</a>
+        <a href="#support">总部协同</a>
+      </nav>
+      <button class="print-btn" onclick="window.print()">打印 / 导出 PDF</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <h1>步步高 S10 晚辅心智<br>达人内容共创方案</h1>
+          <p class="hero-lead">以总部代理会规划为基础，把“晚辅步步高、孩子爱用、AI情景学、护眼、老品牌专业回归”转译成家长真实能看见、能理解、愿意相信的达人内容资产。</p>
+          <div class="quote">把总部理念变成家长感知，把达人内容变成品牌资产，把阶段声量变成 S10 晚辅心智。</div>
+          <div class="hero-actions">
+            <a class="btn primary" href="#why">阅读全文</a>
+            <a class="btn" href="#matrix">查看达人矩阵</a>
+          </div>
+          <div class="meta-row" aria-label="方案核心规模">
+            <div class="meta"><strong>90 天</strong><span>测试、放大、沉淀</span></div>
+            <div class="meta"><strong>12-18 位</strong><span>老师 / 垂类 / KOC 矩阵</span></div>
+            <div class="meta"><strong>20-30 条</strong><span>首期内容资产</span></div>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="assets/slide-cover-01.png" alt="步步高代理会 PPT：做孩子爱用的产品" />
+        </div>
+      </div>
+    </section>
+
+    <section id="context">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-no">01 Context</div>
+            <h2>方案出发点：承接总部清晰规划</h2>
+          </div>
+          <p class="section-summary">S10 不只是一次新品发布，更是步步高重新表达家庭学习场景、儿童真实需求和品牌长期价值的一次重要机会。</p>
+        </div>
+        <div class="content-grid">
+          <div class="panel">
+            <h3>总部已经明确的方向</h3>
+            <ul>
+              <li>以“白天老师教，晚辅步步高”进入家庭晚辅高频场景。</li>
+              <li>以“做孩子爱用的产品”回应学习机行业中孩子不愿用、买后易吃灰的问题。</li>
+              <li>以 AI 情景学、小布学伴、英语兴趣化、错题诊断、精准练习等能力，让学习入口更轻、更有趣、更适合孩子持续使用。</li>
+              <li>以护眼、教材同步、三十年品牌积累和“为爱创造”的产品文化，重建家长对步步高学习机的长期信任。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>诚本参与共创的重点</h3>
+            <p>不是重新定义总部品牌，也不是把达人合作做成单纯销售动作，而是基于诚本在抖音、小红书等内容平台的一线经验，和总部一起把品牌理念转译成家长真实能看见、能理解、愿意相信的内容。</p>
+            <p>本方案把达人共创定义为 S10 新品心智建设的一部分，而不是一次普通达人投放。</p>
+          </div>
+        </div>
+        <div class="asset-strip">
+          <div class="asset-card">
+            <img src="assets/slide-concept-21.png" alt="步步高代理会 PPT：当前聚焦小学生" />
+            <div class="asset-caption"><strong>用户选择</strong>当前聚焦小学生，未来上下延伸。</div>
+          </div>
+          <div class="asset-card">
+            <img src="assets/slide-late-45.png" alt="步步高代理会 PPT：呱呱对标新课标" />
+            <div class="asset-caption"><strong>内容体系</strong>新课标、幼小衔接、生活化互动。</div>
+          </div>
+          <div class="asset-card">
+            <img src="assets/slide-late-46.png" alt="步步高代理会 PPT：产品组合" />
+            <div class="asset-caption"><strong>旺季产品组合</strong>S10、S10 Air、X7。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-no">02 Why</div>
+            <h2>为什么建议做达人内容共创</h2>
+          </div>
+          <p class="section-summary">家长决策已经内容化。达人不是单纯流量入口，而是家长理解产品和品牌的重要中介。</p>
+        </div>
+        <div class="wide-grid">
+          <div class="panel">
+            <h3>S10 的传播难点</h3>
+            <p>学习机是高决策成本产品。家长不会只因为一句广告语或一张海报就完成理解，他们会反复在抖音、小红书等平台看真实家庭怎么用、老师怎么评价、孩子愿不愿意打开、学习机会不会吃灰、长时间使用会不会伤眼。</p>
+            <p>S10 要表达的不是一个单点功能，而是一整套新的家庭晚辅场景。如果只讲 AI、护眼、英语内容、错题诊断、小布学伴，家长可能会把它理解成又一台功能很多的学习机。但如果放到真实晚辅场景中，表达会更容易被理解。</p>
+            <p>例如，一个小学三四年级家庭，晚上开始写作业。家长下班后已经很累，孩子英语课文不愿意读，数学错题反复错，家长越讲越急，孩子越学越抗拒。这个时候，S10 要解决的不是“多一个功能”，而是让孩子更愿意开始，让课本内容更容易进入，让家长少一点硬教和硬催，让晚辅有一个更轻的入口。</p>
+          </div>
+          <div class="panel">
+            <h3>达人共创的互补价值</h3>
+            <p>楼宇广告、户外广告能带来曝光和存在感；达人内容更适合承载复杂场景解释、评论反馈、内容复用和搜索沉淀。</p>
+            <ul>
+              <li>老师达人解决：产品逻辑是否符合教育规律。</li>
+              <li>真实家长达人解决：这个场景我家是不是也有。</li>
+              <li>KOC 真实体验解决：孩子到底愿不愿意用。</li>
+              <li>小红书笔记解决：反复搜索时能否看到可信信息。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="three-cards" style="margin-top:22px;">
+          <div class="strategy-card">
+            <h3>理念被看见</h3>
+            <p>通过真实晚辅场景、老师拆解、孩子试用、家长反馈，把总部理念翻译成家长能理解的内容。</p>
+          </div>
+          <div class="strategy-card">
+            <h3>内容成资产</h3>
+            <p>优质达人内容可被官方号、终端培训、销售讲解和后续二创复用。</p>
+          </div>
+          <div class="strategy-card">
+            <h3>声量变心智</h3>
+            <p>围绕小学三四年级晚辅、英语不愿读、数学错题、怕吃灰等场景强化 S10 晚辅心智。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="message">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-no">03 Message</div>
+            <h2>核心传播主线：让“晚辅步步高”被真实感受到</h2>
+          </div>
+          <p class="section-summary">表达顺序不从功能清单开始，而从家长熟悉的晚辅现场开始：场景 -> 感受 -> 产品。</p>
+        </div>
+        <div class="flow">
+          <div class="flow-step">
+            <strong>Step 1</strong>
+            <h3>场景</h3>
+            <p>小学三四年级晚间作业辅导：英语课文不愿读、数学错题反复错、家长不会教、孩子不愿开始。</p>
+          </div>
+          <div class="flow-step">
+            <strong>Step 2</strong>
+            <h3>感受</h3>
+            <p>家长看到“这就是我家”，孩子从抗拒到愿意打开，晚辅从硬催硬盯变成更轻的陪伴。</p>
+          </div>
+          <div class="flow-step">
+            <strong>Step 3</strong>
+            <h3>产品</h3>
+            <p>自然带出 S10 的 AI 情景学、小布学伴、护眼、错题诊断、精准练习和老品牌信任。</p>
+          </div>
+        </div>
+        <div class="content-grid" style="margin-top:24px;">
+          <div class="panel">
+            <h3>S10 核心卖点转译</h3>
+            <ul>
+              <li><strong>晚辅步步高：</strong>不是一句口号，而是帮助家长从硬教、硬催、硬盯，转向更轻松的晚间陪伴。</li>
+              <li><strong>孩子爱用：</strong>不是让孩子玩得开心，而是让孩子愿意打开、愿意开始、愿意完成一个小任务。</li>
+              <li><strong>AI 情景学：</strong>不是先讲技术词，而是把课本变得更好懂。</li>
+              <li><strong>小布学伴：</strong>不是简单卡通形象，而是孩子愿意靠近学习机的第一入口。</li>
+              <li><strong>护眼：</strong>不是恐吓式卖点，而是在晚辅高频使用场景中给家长安心理由。</li>
+              <li><strong>老品牌信任：</strong>不是单纯怀旧，而是步步高长期做儿童教育电子后的专业回归。</li>
+            </ul>
+          </div>
+          <div class="asset-card">
+            <img src="assets/slide-late-44.png" alt="步步高代理会 PPT：AI学伴现场演示核心特性" />
+            <div class="asset-caption"><strong>代理会素材依据</strong>AI学伴、小布与激励体系，是“孩子愿意打开”的内容入口。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="platform">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-no">04 Platform</div>
+            <h2>平台分工：抖音造感知，小红书沉淀决策</h2>
+          </div>
+          <p class="section-summary">抖音负责让家长先看到、先共鸣、先记住；小红书负责进一步搜索、比较和收藏。</p>
+        </div>
+        <div class="platform">
+          <div class="platform-card douyin">
+            <div>
+              <h3>抖音 70%</h3>
+              <p>制造家庭痛点共鸣，形成阶段性声量，帮助家长建立 S10 的晚辅感知。</p>
+              <div class="platform-tags">
+                <span class="tag">晚辅冲突</span>
+                <span class="tag">孩子不愿开始</span>
+                <span class="tag">学习机怕吃灰</span>
+                <span class="tag">家庭共鸣</span>
+              </div>
+            </div>
+          </div>
+          <div class="platform-card xhs">
+            <div>
+              <h3>小红书 30%</h3>
+              <p>沉淀家长搜索、口碑种草和选购决策内容。</p>
+              <div class="platform-tags">
+                <span class="tag">省妈晚辅</span>
+                <span class="tag">护眼学习机</span>
+                <span class="tag">三四年级怎么选</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel" style="margin-top:22px;">
+          <h3>小红书关键词方向</h3>
+          <p>“省妈晚辅”“学习机有没有必要买”“学习机会不会吃灰”“三四年级学习机怎么选”“护眼学习机”“孩子不愿意学英语”。小红书内容不一定追求短期爆发，而是承担长期可搜索、可收藏、可反复查看的决策资产。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="matrix">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-no">05 Creator Matrix</div>
+            <h2>达人矩阵：老师、垂类中腰、KOC 共同完成信任建设</h2>
+          </div>
+          <p class="section-summary">首期采用稳健型达人矩阵，不一开始追求大规模铺量或重押头部。</p>
+        </div>
+        <div class="scale-box" aria-label="首期建议规模">
+          <div><strong>12-18</strong><span>位达人</span></div>
+          <div><strong>20-30</strong><span>条内容</span></div>
+          <div><strong>单条测试</strong><span>优质追更</span></div>
+          <div><strong>头部可选</strong><span>后续放大项</span></div>
+        </div>
+        <div class="matrix">
+          <div class="matrix-card">
+            <h3>小学学科老师</h3>
+            <div class="role">教育方法翻译官</div>
+            <p>帮助家长理解：为什么孩子不愿意开始学习，为什么兴趣促练比硬逼更有效，为什么难度要“跳一跳够得着”，为什么把课本变成情景内容有助于孩子进入学习。</p>
+          </div>
+          <div class="matrix-card">
+            <h3>家庭教育 / 母婴</h3>
+            <div class="role">情绪共鸣与场景代入</div>
+            <p>讲真实晚辅情绪变化、孩子试用反馈、家庭选购纠结、怕学习机吃灰、怕伤眼、怕买回去没人用等问题。</p>
+          </div>
+          <div class="matrix-card">
+            <h3>3-4 年级 KOC</h3>
+            <div class="role">真实体验和口碑厚度</div>
+            <p>记录一次完整晚辅体验、一周使用变化，或英语课文动画、错题诊断、小布入口等单功能体验。</p>
+          </div>
+          <div class="matrix-card">
+            <h3>头部达人</h3>
+            <div class="role">后续声量放大项</div>
+            <p>等前期内容模型跑通后，再根据资源情况选择是否引入头部达人做阶段声量放大，避免首期过早押注。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="content">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-no">06 Content</div>
+            <h2>内容策略：口径统一，表达自由</h2>
+          </div>
+          <p class="section-summary">总部和诚本共同明确核心口径、内容方向和风险红线；达人保留自己的标题、叙事方式、人物关系和表达节奏。</p>
+        </div>
+        <div class="content-grid">
+          <div class="panel">
+            <h3>内容母题池</h3>
+            <ul>
+              <li><strong>晚辅现场：</strong>记录三四年级家庭晚上辅导作业的真实困难。</li>
+              <li><strong>老师拆解：</strong>解释为什么孩子不是不努力，而是学习入口太难。</li>
+              <li><strong>孩子试用：</strong>观察孩子第一次使用 S10 学英语、做错题、找小布搜学的真实反应。</li>
+              <li><strong>家长问答：</strong>回应学习机会不会吃灰、孩子会不会只想玩、护眼是否重要等问题。</li>
+              <li><strong>护眼安心：</strong>在晚辅长时间使用场景中讲家长为什么关心护眼。</li>
+              <li><strong>吃灰误区破解：</strong>强调关键不是功能多少，而是孩子有没有愿意打开的入口、清晰任务和即时反馈。</li>
+              <li><strong>老品牌信任：</strong>讲步步高三十年积累、教材同步、儿童教育电子经验，以及回到孩子真实需求。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>示例选题</h3>
+            <div class="topic-list">
+              <div class="topic">三年级晚辅最崩溃的，不是题难，而是孩子根本不愿意开始。</div>
+              <div class="topic">为什么学习机买回家会吃灰？很多时候不是功能不够。</div>
+              <div class="topic">英语课文每天都要读，但孩子一打开书就抗拒，能不能换一种进入方式？</div>
+              <div class="topic">晚上辅导作业少吼一点，可能比多讲两遍更重要。</div>
+              <div class="topic">三四年级家长最需要的，不是替孩子学习，而是让晚辅有一个更轻的开始。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-no">07 Timeline</div>
+            <h2>90 天节奏：测试、放大、沉淀</h2>
+          </div>
+          <p class="section-summary">不写成过细排期表，而是用三个阶段把内容模型、优质内容和长期机制跑出来。</p>
+        </div>
+        <div class="timeline">
+          <div class="time-card">
+            <h3>测试期</h3>
+            <p>用小规模内容测试不同达人类型、不同场景表达和不同平台反馈，不急于大规模加热，先看自然发布后的整体数据、评论区质量和家长反馈。</p>
+          </div>
+          <div class="time-card">
+            <h3>放大期</h3>
+            <p>根据第一阶段结果，筛选表现更好的内容和达人组合，进行二次加热、官方复用和优质达人追更。</p>
+          </div>
+          <div class="time-card">
+            <h3>沉淀期</h3>
+            <p>把前两阶段跑出来的优质内容沉淀为总部可复用资产，并形成下一阶段可持续达人合作机制。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="program">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-no">08 Star Program</div>
+            <h2>步步高星光计划：从阶段共创走向长期达人资产</h2>
+          </div>
+          <p class="section-summary">第三阶段承接前期内容声量和样板后，面向更多中小垂类达人开放共创。</p>
+        </div>
+        <div class="program">
+          <div class="panel">
+            <h3>计划机制</h3>
+            <p>对象聚焦 10 万粉左右的教育、母婴、家庭教育、学习用品类达人。这类达人有一定内容影响力，又不像头部达人那样合作成本和沟通门槛过高，适合作为长期共创池。</p>
+            <p>样机激励采取“传播 / 销售二选一达标”的方式，但首要逻辑仍是品牌传播和内容质量。评估采用综合传播分，不只看播放量，也看互动率、评论质量、口径准确度、家长真实讨论和内容可复用程度。</p>
+          </div>
+          <div class="tiers">
+            <div class="tier"><strong>基础参与</strong><span>获得官方素材、产品培训和共创指导。</span></div>
+            <div class="tier"><strong>达标赠机</strong><span>内容传播或销售达到约定标准后，获得样机权益。</span></div>
+            <div class="tier"><strong>优秀共创</strong><span>进入长期合作池，获得官方转发、后续新品优先体验和更多共创机会。</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-no">09 Support</div>
+            <h2>总部协同资源建议</h2>
+          </div>
+          <p class="section-summary">第一版沟通不直接讨论具体预算报价，先对齐这件事要做什么、为什么值得做、如何做得更像品牌共创。</p>
+        </div>
+        <div class="support-grid">
+          <div class="support">
+            <h3>首期共创资源包</h3>
+            <p>S10 样机、官方产品素材、功能演示资料、核心口径、禁用表达、品牌方向说明等。达人内容要真实、准确，首先需要总部提供统一、清晰、可转译的官方信息。</p>
+          </div>
+          <div class="support">
+            <h3>总部支持清单</h3>
+            <p>产品深度培训、达人对接时的身份背书、官方素材授权、必要的联合资源支持。身份背书建议表述为“官方授权共创方”。</p>
+          </div>
+          <div class="support">
+            <h3>阶段滚动配置</h3>
+            <p>第一阶段保障样机、培训和素材，第二阶段支持优质内容加热和复用，第三阶段根据效果决定是否扩大星光计划。</p>
+          </div>
+        </div>
+        <div class="panel" style="margin-top:22px;">
+          <h3>培训与样机机制</h3>
+          <p>产品培训建议采用“总部培训 + 诚本转译”：总部负责讲清产品逻辑、品牌方向和风险红线；诚本负责把这些内容转译成达人能表达、家长能理解、平台更适合传播的内容语言。</p>
+          <p>样机机制可策略化设计：头部达人后续合作可直接赠送；垂类达人和 KOC 可根据合作形式采用借测、赠送或达标赠机；星光计划阶段则把样机权益作为吸引更多达人参与共创的重要激励。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="review">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-no">10 Review</div>
+            <h2>内容放量、评论反馈与复盘</h2>
+          </div>
+          <p class="section-summary">先自然发布测试，再筛选优质内容做二次放量；评论区是判断家长是否理解总部品牌理念的重要反馈场。</p>
+        </div>
+        <div class="content-grid">
+          <div class="panel">
+            <h3>二次放量方式</h3>
+            <p>采用“内容加热 + 授权复用”。表现好的达人原内容可以在平台内加热，同时争取授权给总部官方号、终端培训、销售讲解和后续二创使用，让优质内容成为可多次复用的品牌资产。</p>
+            <p>评论区观察关键词：晚辅、孩子愿意用、学习机吃灰、护眼、AI 情景学、三四年级、英语不愿读、家长不会教、S10。</p>
+          </div>
+          <div class="panel">
+            <h3>复盘重点</h3>
+            <div class="review-list">
+              <div class="review-item">哪些内容最能让家长理解“晚辅步步高”。</div>
+              <div class="review-item">哪些达人类型最能讲清“孩子爱用”。</div>
+              <div class="review-item">哪些评论说明家长开始理解 AI 情景学。</div>
+              <div class="review-item">哪些内容可以被总部官方阵地和终端团队复用。</div>
+              <div class="review-item">哪些小红书关键词值得继续沉淀。</div>
+              <div class="review-item">哪些达人适合进入下一阶段长期共创池。</div>
+            </div>
+          </div>
+        </div>
+        <div class="quote" style="margin-top:22px;">品牌先行，转化后置。先让家长理解和相信 S10，再设计后续直播、店铺、官方阵地或线下体验承接。</div>
+      </div>
+    </section>
+
+    <section id="risk">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-no">11 Risk</div>
+            <h2>风险边界：保持真实表达，避免教育效果夸大</h2>
+          </div>
+          <p class="section-summary">教育产品内容传播必须把风险边界前置，但不需要写成繁琐审核手册。</p>
+        </div>
+        <div class="risk-grid">
+          <div class="risk"><strong>不做结果承诺</strong><span>不能承诺提分、包会、保证成绩、几天见效，也不能表达替代补习或替代老师。</span></div>
+          <div class="risk"><strong>避免绝对化表达</strong><span>不使用“第一”“唯一”“最好”“100%”等容易引发审核和舆情风险的表达。</span></div>
+          <div class="risk"><strong>不攻击竞品</strong><span>可以轻对比行业问题，但不直接攻击具体品牌，不做踩竞品传播。</span></div>
+          <div class="risk"><strong>儿童出镜授权</strong><span>涉及儿童出镜必须获得监护人授权，避免暴露学校、成绩、住址、学习数据等敏感信息。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="finale" id="finale">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-no">12 Closing</div>
+            <h2>和总部一起，把品牌理念传递给真正的家庭</h2>
+          </div>
+          <p class="section-summary">S10 这次的机会，不只是新品上市机会，也是步步高重新表达自身品牌价值的机会。</p>
+        </div>
+        <div class="content-grid">
+          <div>
+            <p>总部已经明确了方向：回到孩子真实需求，回到家庭晚辅场景，回到步步高长期积累的儿童教育电子优势。接下来需要解决的，是如何让这些方向不只停留在内部会议和官方表达中，而是真正被家长看见、理解和相信。</p>
+            <p>达人内容共创的价值，就在于它能把品牌理念放进真实家庭，把产品功能变成可感知场景，把家长的疑问和反馈沉淀为下一步传播依据。</p>
+            <p>诚本希望作为总部的内容共创伙伴，基于一线内容平台和达人沟通经验，和总部一起把代理会中已经非常清晰的品牌理念，转化为家长真实能感受到的内容。</p>
+          </div>
+          <div class="quote">把总部理念变成家长感知，把达人内容变成品牌资产，把阶段声量变成 S10 晚辅心智。</div>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
