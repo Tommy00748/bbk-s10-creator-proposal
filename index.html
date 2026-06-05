@@ -484,6 +484,86 @@
       color: #263241;
     }
 
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .demo-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(17,24,39,.04);
+      min-height: 360px;
+    }
+
+    .demo-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .demo-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 30px;
+      border-radius: 7px;
+      background: var(--blue-100);
+      color: var(--bbk-blue);
+      font-weight: 900;
+      font-size: 13px;
+      flex: 0 0 auto;
+    }
+
+    .demo-card h3 {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.32;
+    }
+
+    .demo-meta {
+      color: var(--muted);
+      font-size: 14px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+
+    .demo-card dl {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+    }
+
+    .demo-card dt {
+      color: var(--bbk-blue);
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .demo-card dd {
+      margin: 0;
+      color: #354052;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .demo-note {
+      margin-top: 20px;
+      background: #fff;
+      border: 1px dashed #8ab4ff;
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      color: #354052;
+    }
+
     .timeline {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -630,6 +710,7 @@
       .wide-grid,
       .platform,
       .matrix,
+      .demo-grid,
       .program,
       .support-grid,
       .risk-grid,
@@ -679,6 +760,7 @@
         <a href="#message">传播主线</a>
         <a href="#platform">平台分工</a>
         <a href="#matrix">达人矩阵</a>
+        <a href="#demo">达人Demo</a>
         <a href="#content">内容策略</a>
         <a href="#timeline">90天节奏</a>
         <a href="#support">总部协同</a>
@@ -923,11 +1005,137 @@
       </div>
     </section>
 
+    <section id="demo">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-no">06 Creator Demo</div>
+            <h2>达人 DEMO：让总部看到“具体怎么做”</h2>
+          </div>
+          <p class="section-summary">以下不是最终名单和报价，而是首期可对接的达人样例。目的不是先锁死达人，而是让总部直观看到：不同达人承担什么内容任务、怎么讲 S10、如何形成可复用品牌资产。</p>
+        </div>
+
+        <div class="demo-grid">
+          <article class="demo-card">
+            <div class="demo-top">
+              <h3>小学英语老师型达人</h3>
+              <span class="demo-badge">T01</span>
+            </div>
+            <div class="demo-meta">建议画像：小学英语老师 / 教研老师 / 10-30万粉左右 / 抖音优先</div>
+            <dl>
+              <dt>内容任务</dt>
+              <dd>把“AI情景学”和英语兴趣化内容翻译成家长能听懂的晚辅方法。</dd>
+              <dt>示例选题</dt>
+              <dd>《三年级英语晚辅为什么越来越难？不是孩子不努力，是进入方式不对》</dd>
+              <dt>S10切入</dt>
+              <dd>从英语课文不愿读切入，展示情景动画、趣味配音、每日小任务，让“把课本变好懂”变成看得见的体验。</dd>
+              <dt>合作形式</dt>
+              <dd>单条短视频测试；数据和评论质量达标后追更“英语一周晚辅体验”。</dd>
+            </dl>
+          </article>
+
+          <article class="demo-card">
+            <div class="demo-top">
+              <h3>小学数学老师 / 错题诊断型达人</h3>
+              <span class="demo-badge">T02</span>
+            </div>
+            <div class="demo-meta">建议画像：小学数学老师 / 奥数或校内数学内容达人 / 10-50万粉 / 抖音优先</div>
+            <dl>
+              <dt>内容任务</dt>
+              <dd>讲清“错题诊断、精准练、最近发展区”，避免家长理解成普通刷题工具。</dd>
+              <dt>示例选题</dt>
+              <dd>《孩子数学题反复错，最怕的不是不会，而是一直在盲目刷题》</dd>
+              <dt>S10切入</dt>
+              <dd>用一次错题拍照、薄弱点诊断、举一反三练习的路径，说明“跳一跳够得着”的晚辅价值。</dd>
+              <dt>合作形式</dt>
+              <dd>老师讲解 + 屏幕路径演示，优质内容授权总部用于终端培训。</dd>
+            </dl>
+          </article>
+
+          <article class="demo-card">
+            <div class="demo-top">
+              <h3>真实家长型母婴 / 家庭教育达人</h3>
+              <span class="demo-badge">P01</span>
+            </div>
+            <div class="demo-meta">建议画像：三四年级家长人设 / 母婴或家庭教育垂类 / 5-20万粉 / 抖音+小红书</div>
+            <dl>
+              <dt>内容任务</dt>
+              <dd>把“晚辅步步高”讲成真实家庭情绪变化，而不是官方口号。</dd>
+              <dt>示例选题</dt>
+              <dd>《晚上辅导作业少吼一点，可能比多讲两遍更重要》</dd>
+              <dt>S10切入</dt>
+              <dd>记录一晚晚辅：孩子从拖拉抗拒，到愿意打开小布任务、完成英语或错题练习。</dd>
+              <dt>合作形式</dt>
+              <dd>首条真实体验视频；评论区问题整理成下一条“学习机会不会吃灰”答疑。</dd>
+            </dl>
+          </article>
+
+          <article class="demo-card">
+            <div class="demo-top">
+              <h3>小红书“省妈晚辅”学习用品博主</h3>
+              <span class="demo-badge">X01</span>
+            </div>
+            <div class="demo-meta">建议画像：学习用品 / 省妈工具 / 小学生家长决策内容 / 1-10万粉 / 小红书优先</div>
+            <dl>
+              <dt>内容任务</dt>
+              <dd>沉淀“学习机有没有必要买、会不会吃灰、三四年级怎么选”等搜索型内容。</dd>
+              <dt>示例选题</dt>
+              <dd>《三四年级学习机怎么选？我更关心孩子会不会主动打开》</dd>
+              <dt>S10切入</dt>
+              <dd>从家长选购纠结切入，对比“功能很多”与“能不能进入晚辅流程”，突出 S10 的孩子爱用和晚辅场景。</dd>
+              <dt>合作形式</dt>
+              <dd>图文/短视频笔记 + 评论区问答，重点做收藏、搜索和长期决策资产。</dd>
+            </dl>
+          </article>
+
+          <article class="demo-card">
+            <div class="demo-top">
+              <h3>护眼 / 数码测评垂类达人</h3>
+              <span class="demo-badge">D01</span>
+            </div>
+            <div class="demo-meta">建议画像：护眼科普 / 儿童数码 / 学习桌面测评 / 10-50万粉 / 抖音+小红书</div>
+            <dl>
+              <dt>内容任务</dt>
+              <dd>把护眼从“参数卖点”讲成家长在晚辅长时间使用场景中的安心理由。</dd>
+              <dt>示例选题</dt>
+              <dd>《孩子每天晚辅都要看屏幕，家长真正该看哪些护眼细节？》</dd>
+              <dt>S10切入</dt>
+              <dd>结合晚辅高频使用、合理使用习惯和屏幕体验，降低“学习机会不会伤眼”的担忧。</dd>
+              <dt>合作形式</dt>
+              <dd>测评视频 + 小红书收藏型笔记，适合成为总部“护眼安心”内容资产。</dd>
+            </dl>
+          </article>
+
+          <article class="demo-card">
+            <div class="demo-top">
+              <h3>BBK 老品牌信任 / 老用户家庭 KOC</h3>
+              <span class="demo-badge">B01</span>
+            </div>
+            <div class="demo-meta">建议画像：步步高 / 小天才老用户家庭、三四年级孩子家庭、真实体验型 KOC</div>
+            <dl>
+              <dt>内容任务</dt>
+              <dd>把 BBK 的老品牌信任讲成“专业回归”，而不是单纯情怀。</dd>
+              <dt>示例选题</dt>
+              <dd>《从我们小时候知道步步高，到现在给孩子选晚辅工具，我更看重什么？》</dd>
+              <dt>S10切入</dt>
+              <dd>从三十年教材同步、儿童教育电子经验、孩子真实需求切入，讲品牌为什么重新回到家庭晚辅。</dd>
+              <dt>合作形式</dt>
+              <dd>真实体验 + 口碑故事，适合第三阶段星光计划和长期 KOC 池。</dd>
+            </dl>
+          </article>
+        </div>
+
+        <div class="demo-note">
+          <strong>执行说明：</strong>这组 DEMO 用于向总部展示“达人合作不是抽象投放，而是不同内容任务的组合”。正式执行前仍需按总部口径、平台数据、历史内容、报价、档期、评论区风险和授权复用条件做二次筛选。
+        </div>
+      </div>
+    </section>
+
     <section id="content">
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">06 Content</div>
+            <div class="section-no">07 Content</div>
             <h2>内容策略：口径统一，表达自由</h2>
           </div>
           <p class="section-summary">总部和诚本共同明确核心口径、内容方向和风险红线；达人保留自己的标题、叙事方式、人物关系和表达节奏。</p>
@@ -963,7 +1171,7 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">07 Timeline</div>
+            <div class="section-no">08 Timeline</div>
             <h2>90 天节奏：测试、放大、沉淀</h2>
           </div>
           <p class="section-summary">不写成过细排期表，而是用三个阶段把内容模型、优质内容和长期机制跑出来。</p>
@@ -989,7 +1197,7 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">08 Star Program</div>
+            <div class="section-no">09 Star Program</div>
             <h2>步步高星光计划：从阶段共创走向长期达人资产</h2>
           </div>
           <p class="section-summary">第三阶段承接前期内容声量和样板后，面向更多中小垂类达人开放共创。</p>
@@ -1013,7 +1221,7 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">09 Support</div>
+            <div class="section-no">10 Support</div>
             <h2>总部协同资源建议</h2>
           </div>
           <p class="section-summary">第一版沟通不直接讨论具体预算报价，先对齐这件事要做什么、为什么值得做、如何做得更像品牌共创。</p>
@@ -1044,7 +1252,7 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">10 Review</div>
+            <div class="section-no">11 Review</div>
             <h2>内容放量、评论反馈与复盘</h2>
           </div>
           <p class="section-summary">先自然发布测试，再筛选优质内容做二次放量；评论区是判断家长是否理解总部品牌理念的重要反馈场。</p>
@@ -1075,7 +1283,7 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">11 Risk</div>
+            <div class="section-no">12 Risk</div>
             <h2>风险边界：保持真实表达，避免教育效果夸大</h2>
           </div>
           <p class="section-summary">教育产品内容传播必须把风险边界前置，但不需要写成繁琐审核手册。</p>
@@ -1093,7 +1301,7 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">12 Closing</div>
+            <div class="section-no">13 Closing</div>
             <h2>和总部一起，把品牌理念传递给真正的家庭</h2>
           </div>
           <p class="section-summary">S10 这次的机会，不只是新品上市机会，也是步步高重新表达自身品牌价值的机会。</p>
