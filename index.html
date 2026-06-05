@@ -342,6 +342,129 @@
       color: var(--blue-700);
     }
 
+    .executive {
+      background: #fff;
+      padding-top: 52px;
+    }
+
+    .executive-board {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .answer-card {
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px),
+        linear-gradient(135deg, var(--navy), #102f4f);
+      background-size: 30px 30px, auto;
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      min-height: 100%;
+    }
+
+    .answer-card .section-no {
+      color: #fff;
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .answer-card h2 {
+      color: #fff;
+      font-size: clamp(30px, 3.5vw, 48px);
+      margin-bottom: 18px;
+    }
+
+    .answer-card p {
+      color: rgba(255,255,255,.78);
+      font-size: 18px;
+      margin: 0 0 16px;
+    }
+
+    .answer-line {
+      border-left: 5px solid var(--amber);
+      padding-left: 16px;
+      color: #fff;
+      font-size: 22px;
+      line-height: 1.55;
+      font-weight: 900;
+      margin-top: 22px;
+    }
+
+    .story-rail {
+      display: grid;
+      gap: 12px;
+    }
+
+    .story-card {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--card-shadow);
+      align-items: start;
+    }
+
+    .story-index {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--bbk-blue), var(--green));
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .story-card h3 {
+      margin: 0 0 5px;
+      font-size: 20px;
+      line-height: 1.28;
+    }
+
+    .story-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .decision {
+      background: linear-gradient(135deg, #f8fbff, #fff);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 10px 28px rgba(17,24,39,.05);
+    }
+
+    .decision strong {
+      display: block;
+      color: var(--bbk-blue);
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .decision span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
     .three-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1064,6 +1187,7 @@
 
     @media (max-width: 960px) {
       .hero-grid,
+      .executive-board,
       .section-head,
       .content-grid,
       .wide-grid,
@@ -1086,6 +1210,23 @@
       .topic-list,
       .review-list {
         grid-template-columns: 1fr;
+      }
+
+      .decision-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-card {
+        grid-template-columns: 44px 1fr;
+      }
+
+      .story-index {
+        width: 40px;
+        height: 40px;
+      }
+
+      .answer-card {
+        padding: 22px;
       }
 
       .pyramid-people {
@@ -1130,6 +1271,7 @@
         <span>达人内容共创方案</span>
       </a>
       <nav class="nav" aria-label="页面导航">
+        <a href="#mainline">主线摘要</a>
         <a href="#why">为什么做</a>
         <a href="#message">传播主线</a>
         <a href="#platform">平台分工</a>
@@ -1151,7 +1293,7 @@
           <p class="hero-lead">围绕 S10 接下来的核心规划，把“晚辅步步高、孩子爱用、AI情景学、护眼、老品牌专业回归”转译成家长真实能看见、能理解、愿意相信的达人内容资产。</p>
           <div class="quote">把品牌理念变成家长感知，把达人内容变成品牌资产，把阶段声量变成 S10 晚辅心智。</div>
           <div class="hero-actions">
-            <a class="btn primary" href="#why">阅读全文</a>
+            <a class="btn primary" href="#mainline">先看主线</a>
             <a class="btn" href="#matrix">查看达人矩阵</a>
           </div>
           <div class="meta-row" aria-label="方案核心规模">
@@ -1166,12 +1308,64 @@
       </div>
     </section>
 
+    <section class="executive" id="mainline">
+      <div class="shell">
+        <div class="executive-board">
+          <div class="answer-card">
+            <div class="section-no">01 Mainline</div>
+            <h2>这份方案先回答一个问题：S10 的晚辅心智，如何被家长真正理解？</h2>
+            <p>产品方向已经清楚，但家长不会天然理解“AI 情景学、孩子爱用、护眼、老品牌专业回归”之间的关系。内容共创要解决的不是多发几条达人视频，而是把这些方向放进真实家庭晚辅里。</p>
+            <div class="answer-line">主线不是“找达人投放”，而是用老师、垂类达人和真实家庭，把 S10 从产品功能转译成家长能感知的晚辅场景。</div>
+          </div>
+
+          <div>
+            <div class="story-rail">
+              <div class="story-card">
+                <div class="story-index">1</div>
+                <div>
+                  <h3>先把问题说清楚</h3>
+                  <p>三四年级晚辅的核心痛点，是孩子不愿开始、家长不会教、功能买回家容易吃灰。</p>
+                </div>
+              </div>
+              <div class="story-card">
+                <div class="story-index">2</div>
+                <div>
+                  <h3>再把产品翻译成场景</h3>
+                  <p>AI 情景学、错题诊断、护眼和小布学伴，不单独讲参数，而是放进一晚作业辅导的真实流程。</p>
+                </div>
+              </div>
+              <div class="story-card">
+                <div class="story-index">3</div>
+                <div>
+                  <h3>用不同达人承担不同信任任务</h3>
+                  <p>老师讲方法是否站得住，亲子垂类讲家庭是否有共鸣，KOC 讲孩子是否真的愿意用。</p>
+                </div>
+              </div>
+              <div class="story-card">
+                <div class="story-index">4</div>
+                <div>
+                  <h3>用 90 天跑出内容样板</h3>
+                  <p>先测试自然反馈，再放大优质内容，最后沉淀成可复用的达人资产和星光计划。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="decision-grid">
+              <div class="decision"><strong>值不值得做</strong><span>看它能否补上官方表达到家长感知之间的内容空白。</span></div>
+              <div class="decision"><strong>先怎么做</strong><span>不先押头部达人，先用 12-18 位老师、垂类、KOC 测内容模型。</span></div>
+              <div class="decision"><strong>怎么判断有效</strong><span>看评论区是否出现晚辅、孩子愿意用、AI 情景学、护眼、吃灰等真实讨论。</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="context">
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">01 Context</div>
-            <h2>方案出发点：回到家庭晚辅场景</h2>
+            <div class="section-no">02 Context</div>
+            <h2>第一步：从产品规划回到晚辅痛点</h2>
           </div>
           <p class="section-summary">S10 不只是一次新品发布，更是步步高重新表达家庭学习场景、儿童真实需求和品牌长期价值的一次重要机会。</p>
         </div>
@@ -1212,8 +1406,8 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">02 Why</div>
-            <h2>为什么建议做达人内容共创</h2>
+            <div class="section-no">03 Why</div>
+            <h2>第二步：为什么需要达人做场景转译</h2>
           </div>
           <p class="section-summary">家长决策已经内容化。达人不是单纯流量入口，而是家长理解产品和品牌的重要中介。</p>
         </div>
@@ -1256,8 +1450,8 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">03 Message</div>
-            <h2>核心传播主线：让“晚辅步步高”被真实感受到</h2>
+            <div class="section-no">04 Message</div>
+            <h2>第三步：把 S10 从功能讲成一晚晚辅</h2>
           </div>
           <p class="section-summary">表达顺序不从功能清单开始，而从家长熟悉的晚辅现场开始：场景 -> 感受 -> 产品。</p>
         </div>
@@ -1302,8 +1496,8 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">04 Platform</div>
-            <h2>平台分工：抖音造感知，小红书沉淀决策</h2>
+            <div class="section-no">05 Platform</div>
+            <h2>第四步：抖音先造感知，小红书沉淀决策</h2>
           </div>
           <p class="section-summary">抖音负责让家长先看到、先共鸣、先记住；小红书负责进一步搜索、比较和收藏。</p>
         </div>
@@ -1343,8 +1537,8 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">05 Creator Matrix</div>
-            <h2>达人矩阵：老师、垂类中腰、KOC 共同完成信任建设</h2>
+            <div class="section-no">06 Creator Matrix</div>
+            <h2>第五步：用达人矩阵分工解决信任问题</h2>
           </div>
           <p class="section-summary">首期采用稳健型达人矩阵，不一开始追求大规模铺量或重押头部。</p>
         </div>
@@ -1383,8 +1577,8 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">06 Creator Demo</div>
-            <h2>真实达人候选池：内容角色与场景转译</h2>
+            <div class="section-no">07 Creator Candidates</div>
+            <h2>第六步：真实候选池如何落到内容角色</h2>
           </div>
           <p class="section-summary">以下基于 2026 年 6 月 5 日公开页面初筛，不代表最终采购名单和报价。它的作用是把内容角色先具象化：老师、家庭教育、亲子垂类、学习资源和 KOC 各自承担什么内容任务，S10 如何被不同人群讲成家长能感知的晚辅场景。</p>
         </div>
@@ -1667,8 +1861,8 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">07 Content</div>
-            <h2>内容策略：口径统一，表达自由</h2>
+            <div class="section-no">08 Content</div>
+            <h2>第七步：给统一口径，但不写死脚本</h2>
           </div>
           <p class="section-summary">先明确核心口径、内容方向和风险红线；达人保留自己的标题、叙事方式、人物关系和表达节奏。</p>
         </div>
@@ -1703,8 +1897,8 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">08 Timeline</div>
-            <h2>90 天节奏：测试、放大、沉淀</h2>
+            <div class="section-no">09 Timeline</div>
+            <h2>第八步：90 天跑出样板，再决定放大</h2>
           </div>
           <p class="section-summary">不写成过细排期表，而是用三个阶段把内容模型、优质内容和长期机制跑出来。</p>
         </div>
@@ -1729,8 +1923,8 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">09 Star Program</div>
-            <h2>步步高星光计划：从阶段共创走向长期达人资产</h2>
+            <div class="section-no">10 Star Program</div>
+            <h2>第九步：用星光计划沉淀长期达人资产</h2>
           </div>
           <p class="section-summary">第三阶段承接前期内容声量和样板后，面向更多中小垂类达人开放共创。</p>
         </div>
@@ -1753,8 +1947,8 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">10 Support</div>
-            <h2>内容共创资源建议</h2>
+            <div class="section-no">11 Support</div>
+            <h2>第十步：内容共创需要哪些资源</h2>
           </div>
           <p class="section-summary">第一版不直接讨论具体预算报价，先对齐这件事要做什么、为什么值得做、如何做得更像品牌共创。</p>
         </div>
@@ -1784,8 +1978,8 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">11 Review</div>
-            <h2>内容放量、评论反馈与复盘</h2>
+            <div class="section-no">12 Review</div>
+            <h2>第十一步：看评论区和复用价值判断效果</h2>
           </div>
           <p class="section-summary">先自然发布测试，再筛选优质内容做二次放量；评论区是判断家长是否理解品牌理念的重要反馈场。</p>
         </div>
@@ -1815,8 +2009,8 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">12 Risk</div>
-            <h2>风险边界：保持真实表达，避免教育效果夸大</h2>
+            <div class="section-no">13 Risk</div>
+            <h2>风险边界：真实表达，不夸大教育效果</h2>
           </div>
           <p class="section-summary">教育产品内容传播必须把风险边界前置，但不需要写成繁琐审核手册。</p>
         </div>
@@ -1833,8 +2027,8 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <div class="section-no">13 Closing</div>
-            <h2>把品牌理念传递给真正的家庭</h2>
+            <div class="section-no">14 Closing</div>
+            <h2>最终落点：把品牌理念传递给真正的家庭</h2>
           </div>
           <p class="section-summary">S10 这次的机会，不只是新品上市机会，也是步步高重新表达自身品牌价值的机会。</p>
         </div>
