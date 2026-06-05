@@ -500,6 +500,14 @@
       min-height: 360px;
     }
 
+    .demo-card.is-candidate {
+      min-height: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
     .demo-top {
       display: flex;
       align-items: flex-start;
@@ -520,6 +528,104 @@
       font-weight: 900;
       font-size: 13px;
       flex: 0 0 auto;
+    }
+
+    .creator-head {
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .creator-avatar,
+    .avatar-fallback {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 6px 18px rgba(17,24,39,.16);
+      object-fit: cover;
+      background: linear-gradient(135deg, #eaf2ff, #fff6e6);
+      flex: 0 0 auto;
+    }
+
+    .avatar-fallback {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bbk-blue);
+      font-weight: 900;
+      font-size: 16px;
+    }
+
+    .creator-tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      border-radius: 999px;
+      background: #fff5db;
+      color: #8b5b00;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .creator-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin: 2px 0 4px;
+    }
+
+    .stat-pill {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 9px 10px;
+      background: #f8fafc;
+    }
+
+    .stat-pill strong {
+      display: block;
+      color: var(--bbk-blue);
+      font-size: 18px;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+
+    .stat-pill span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .creator-link {
+      color: var(--bbk-blue);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .source-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .source-row span,
+    .source-row a {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      padding: 6px 9px;
+      color: #4b5563;
+      background: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
     }
 
     .demo-card h3 {
@@ -562,6 +668,81 @@
       border-radius: var(--radius);
       padding: 18px 20px;
       color: #354052;
+    }
+
+    .creator-pyramid {
+      margin-top: 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .pyramid-row {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .pyramid-label {
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: #fff;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 88px;
+    }
+
+    .pyramid-label strong {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .pyramid-label span {
+      color: rgba(255,255,255,.7);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .pyramid-row:nth-child(2) .pyramid-label {
+      background: var(--bbk-blue);
+    }
+
+    .pyramid-row:nth-child(3) .pyramid-label {
+      background: #147a64;
+    }
+
+    .pyramid-people {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 12px;
+      align-items: center;
+    }
+
+    .pyramid-person {
+      border-radius: 8px;
+      background: #f8fafc;
+      padding: 11px;
+      min-height: 86px;
+    }
+
+    .pyramid-person strong {
+      display: block;
+      color: #1f2937;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .pyramid-person span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
     }
 
     .timeline {
@@ -709,6 +890,7 @@
       .content-grid,
       .wide-grid,
       .platform,
+      .pyramid-row,
       .matrix,
       .demo-grid,
       .program,
@@ -725,6 +907,10 @@
       .scale-box,
       .topic-list,
       .review-list {
+        grid-template-columns: 1fr;
+      }
+
+      .pyramid-people {
         grid-template-columns: 1fr;
       }
 
@@ -1010,123 +1196,281 @@
         <div class="section-head">
           <div>
             <div class="section-no">06 Creator Demo</div>
-            <h2>达人 DEMO：让总部看到“具体怎么做”</h2>
+            <h2>真实达人候选池：让总部看到“谁来讲、怎么讲”</h2>
           </div>
-          <p class="section-summary">以下不是最终名单和报价，而是首期可对接的达人样例。目的不是先锁死达人，而是让总部直观看到：不同达人承担什么内容任务、怎么讲 S10、如何形成可复用品牌资产。</p>
+          <p class="section-summary">以下基于 2026 年 6 月 5 日公开页面初筛，不代表最终采购名单和报价。它的作用是让总部直观看到：老师、家庭教育、亲子垂类、学习资源和 KOC 各自承担什么内容任务，S10 如何被不同人群讲成家长能感知的晚辅场景。</p>
+        </div>
+
+        <div class="creator-pyramid">
+          <div class="pyramid-row">
+            <div class="pyramid-label">
+              <strong>头部声量层</strong>
+              <span>不作为首期主线，适合内容模型跑通后的节点放大和品牌背书。</span>
+            </div>
+            <div class="pyramid-people">
+              <div class="pyramid-person"><strong>英语雪梨老师</strong><span>英语老师 / 1699.3万粉<br>适合讲 AI 情景学与英语兴趣进入</span></div>
+              <div class="pyramid-person"><strong>李永乐老师</strong><span>教育科普 / 1691.1万粉<br>适合后续做专业感与品牌声量放大</span></div>
+              <div class="pyramid-person"><strong>是个懒妈</strong><span>亲子垂类 / 约1300万粉<br>适合家庭场景和孩子陪伴视角</span></div>
+              <div class="pyramid-person"><strong>张文晖</strong><span>数学老师 / 804.6万粉<br>适合讲数学错题与诊断路径</span></div>
+            </div>
+          </div>
+
+          <div class="pyramid-row">
+            <div class="pyramid-label">
+              <strong>核心共创层</strong>
+              <span>首期重点：老师、家庭教育、学习资源达人，把总部理念翻译成方法和场景。</span>
+            </div>
+            <div class="pyramid-people">
+              <div class="pyramid-person"><strong>北大胡涛数学思维</strong><span>数学思维 / 101.5万粉<br>解释最近发展区、举一反三</span></div>
+              <div class="pyramid-person"><strong>常军心理学</strong><span>家庭教育 / 92.9万粉<br>解释晚辅情绪、亲子关系</span></div>
+              <div class="pyramid-person"><strong>海北老师</strong><span>家长教育 / 65.8万粉<br>家长痛点共鸣和方法转译</span></div>
+              <div class="pyramid-person"><strong>吴主任-选书超严格</strong><span>学习资源 / 53.5万粉<br>做选购决策与学习资料视角</span></div>
+            </div>
+          </div>
+
+          <div class="pyramid-row">
+            <div class="pyramid-label">
+              <strong>KOC 真实体验层</strong>
+              <span>通过星光计划公开招募，不靠硬凑名单；重点找三四年级真实家庭。</span>
+            </div>
+            <div class="pyramid-people">
+              <div class="pyramid-person"><strong>三四年级家庭 KOC</strong><span>1千-5万粉<br>拍一晚晚辅完整体验</span></div>
+              <div class="pyramid-person"><strong>BBK / 小天才老用户</strong><span>老品牌信任<br>讲专业回归，不讲单纯情怀</span></div>
+              <div class="pyramid-person"><strong>学习桌面 / 省妈工具 KOC</strong><span>小红书搜索沉淀<br>回答会不会吃灰、怎么选</span></div>
+              <div class="pyramid-person"><strong>优质评论区追更家庭</strong><span>二次内容资产<br>用真实问题反推选题</span></div>
+            </div>
+          </div>
         </div>
 
         <div class="demo-grid">
-          <article class="demo-card">
-            <div class="demo-top">
-              <h3>小学英语老师型达人</h3>
-              <span class="demo-badge">T01</span>
+          <article class="demo-card is-candidate">
+            <div class="creator-head">
+              <img class="creator-avatar" src="assets/creators/xueli-english.jpeg" alt="英语雪梨老师头像">
+              <div>
+                <span class="creator-tag">老师 / 英语</span>
+                <h3>英语雪梨老师</h3>
+              </div>
             </div>
-            <div class="demo-meta">建议画像：小学英语老师 / 教研老师 / 10-30万粉左右 / 抖音优先</div>
+            <div class="demo-meta">公开信息：抖音号 xueliyingyu；简介提到香港中文大学翻译硕士、教育品牌创始人。</div>
+            <div class="creator-stats">
+              <div class="stat-pill"><strong>1699.3万</strong><span>粉丝</span></div>
+              <div class="stat-pill"><strong>7441.5万</strong><span>获赞</span></div>
+            </div>
             <dl>
               <dt>内容任务</dt>
-              <dd>把“AI情景学”和英语兴趣化内容翻译成家长能听懂的晚辅方法。</dd>
-              <dt>示例选题</dt>
+              <dd>把 AI 情景学、英语开口、孩子爱用翻译成家长能听懂的英语晚辅方法，适合做后续节点型声量放大。</dd>
+              <dt>S10示例选题</dt>
               <dd>《三年级英语晚辅为什么越来越难？不是孩子不努力，是进入方式不对》</dd>
-              <dt>S10切入</dt>
-              <dd>从英语课文不愿读切入，展示情景动画、趣味配音、每日小任务，让“把课本变好懂”变成看得见的体验。</dd>
-              <dt>合作形式</dt>
-              <dd>单条短视频测试；数据和评论质量达标后追更“英语一周晚辅体验”。</dd>
             </dl>
+            <div class="source-row">
+              <span>抖音公开页</span>
+              <a href="https://www.douyin.com/user/MS4wLjABAAAA7F9srUZmSoxPRcywewClYslUk8ysERHVrz6srz0eNow" target="_blank" rel="noreferrer">查看来源</a>
+            </div>
           </article>
 
-          <article class="demo-card">
-            <div class="demo-top">
-              <h3>小学数学老师 / 错题诊断型达人</h3>
-              <span class="demo-badge">T02</span>
+          <article class="demo-card is-candidate">
+            <div class="creator-head">
+              <span class="avatar-fallback">张文晖</span>
+              <div>
+                <span class="creator-tag">老师 / 数学</span>
+                <h3>张文晖-满分数学张老师</h3>
+              </div>
             </div>
-            <div class="demo-meta">建议画像：小学数学老师 / 奥数或校内数学内容达人 / 10-50万粉 / 抖音优先</div>
+            <div class="demo-meta">公开信息：抖音认证主体为厦门满分数学教育咨询有限公司；简介含直播时间和老师个人介绍。</div>
+            <div class="creator-stats">
+              <div class="stat-pill"><strong>804.6万</strong><span>粉丝</span></div>
+              <div class="stat-pill"><strong>2543.0万</strong><span>获赞</span></div>
+            </div>
             <dl>
               <dt>内容任务</dt>
-              <dd>讲清“错题诊断、精准练、最近发展区”，避免家长理解成普通刷题工具。</dd>
-              <dt>示例选题</dt>
+              <dd>讲清错题诊断、精准练、举一反三，避免家长把 S10 理解成普通刷题工具。</dd>
+              <dt>S10示例选题</dt>
               <dd>《孩子数学题反复错，最怕的不是不会，而是一直在盲目刷题》</dd>
-              <dt>S10切入</dt>
-              <dd>用一次错题拍照、薄弱点诊断、举一反三练习的路径，说明“跳一跳够得着”的晚辅价值。</dd>
-              <dt>合作形式</dt>
-              <dd>老师讲解 + 屏幕路径演示，优质内容授权总部用于终端培训。</dd>
             </dl>
+            <div class="source-row">
+              <span>头像待平台复核</span>
+              <a href="https://www.douyin.com/user/MS4wLjABAAAAbtIXJ44Z3YdbdQy6I1_md1vGJrrtjskmeDatBoZUsIm0nd8eqEX57Od_-44wxG5F" target="_blank" rel="noreferrer">查看来源</a>
+            </div>
           </article>
 
-          <article class="demo-card">
-            <div class="demo-top">
-              <h3>真实家长型母婴 / 家庭教育达人</h3>
-              <span class="demo-badge">P01</span>
+          <article class="demo-card is-candidate">
+            <div class="creator-head">
+              <span class="avatar-fallback">懒妈</span>
+              <div>
+                <span class="creator-tag">亲子 / 家庭场景</span>
+                <h3>是个懒妈</h3>
+              </div>
             </div>
-            <div class="demo-meta">建议画像：三四年级家长人设 / 母婴或家庭教育垂类 / 5-20万粉 / 抖音+小红书</div>
+            <div class="demo-meta">公开信息：抖音认证为优质亲子领域创作者；搜索公开页显示约 1300 万粉丝。</div>
+            <div class="creator-stats">
+              <div class="stat-pill"><strong>1300万+</strong><span>粉丝</span></div>
+              <div class="stat-pill"><strong>亲子</strong><span>垂类</span></div>
+            </div>
             <dl>
               <dt>内容任务</dt>
-              <dd>把“晚辅步步高”讲成真实家庭情绪变化，而不是官方口号。</dd>
-              <dt>示例选题</dt>
+              <dd>把“晚辅步步高”讲成家庭陪伴、孩子愿意用和家长少吼一点，适合做家长情绪共鸣。</dd>
+              <dt>S10示例选题</dt>
               <dd>《晚上辅导作业少吼一点，可能比多讲两遍更重要》</dd>
-              <dt>S10切入</dt>
-              <dd>记录一晚晚辅：孩子从拖拉抗拒，到愿意打开小布任务、完成英语或错题练习。</dd>
-              <dt>合作形式</dt>
-              <dd>首条真实体验视频；评论区问题整理成下一条“学习机会不会吃灰”答疑。</dd>
             </dl>
+            <div class="source-row">
+              <span>抖音公开页</span>
+              <a href="https://www.douyin.com/user/MS4wLjABAAAA7TGWbbQJCmiUzao0z4W590_ChgurRvOP7Y-16ddVkdI" target="_blank" rel="noreferrer">查看来源</a>
+            </div>
           </article>
 
-          <article class="demo-card">
-            <div class="demo-top">
-              <h3>小红书“省妈晚辅”学习用品博主</h3>
-              <span class="demo-badge">X01</span>
+          <article class="demo-card is-candidate">
+            <div class="creator-head">
+              <img class="creator-avatar" src="assets/creators/hutao-math.jpeg" alt="北大胡涛数学思维头像">
+              <div>
+                <span class="creator-tag">老师 / 数学思维</span>
+                <h3>北大胡涛数学思维</h3>
+              </div>
             </div>
-            <div class="demo-meta">建议画像：学习用品 / 省妈工具 / 小学生家长决策内容 / 1-10万粉 / 小红书优先</div>
+            <div class="demo-meta">公开信息：简介提到北大毕业、16 年一线教学经验、教过 10 万余学生。</div>
+            <div class="creator-stats">
+              <div class="stat-pill"><strong>101.5万</strong><span>粉丝</span></div>
+              <div class="stat-pill"><strong>103.6万</strong><span>获赞</span></div>
+            </div>
             <dl>
               <dt>内容任务</dt>
-              <dd>沉淀“学习机有没有必要买、会不会吃灰、三四年级怎么选”等搜索型内容。</dd>
-              <dt>示例选题</dt>
+              <dd>从数学思维、最近发展区和举一反三切入，适合把 S10 的诊断路径讲成老师可认可的方法。</dd>
+              <dt>S10示例选题</dt>
+              <dd>《同一道题讲三遍还不会，家长该先找“不会点”，不是继续刷题》</dd>
+            </dl>
+            <div class="source-row">
+              <span>抖音公开页</span>
+              <a href="https://www.douyin.com/user/MS4wLjABAAAApgkqbChn8w0f-BppNX0buuAfuLYDXimra8oc9SJC5DM" target="_blank" rel="noreferrer">查看来源</a>
+            </div>
+          </article>
+
+          <article class="demo-card is-candidate">
+            <div class="creator-head">
+              <img class="creator-avatar" src="assets/creators/changjun-psychology.jpeg" alt="常军心理学头像">
+              <div>
+                <span class="creator-tag">家庭教育 / 心理</span>
+                <h3>常军心理学</h3>
+              </div>
+            </div>
+            <div class="demo-meta">公开信息：家庭教育和心理沟通内容人设，适合晚辅情绪、亲子关系、孩子主动性议题。</div>
+            <div class="creator-stats">
+              <div class="stat-pill"><strong>92.9万</strong><span>粉丝</span></div>
+              <div class="stat-pill"><strong>1053.3万</strong><span>获赞</span></div>
+            </div>
+            <dl>
+              <dt>内容任务</dt>
+              <dd>把“孩子爱用”从产品卖点翻译成亲子沟通结果：愿意打开、愿意完成、家长少对抗。</dd>
+              <dt>S10示例选题</dt>
+              <dd>《晚辅最累的不是题目，是亲子关系先崩了》</dd>
+            </dl>
+            <div class="source-row">
+              <span>抖音公开页</span>
+              <a href="https://www.douyin.com/user/MS4wLjABAAAAcvWNhVjg-0qAKT1cItmOYeqcOYGCXrjthm_oicRUnh4" target="_blank" rel="noreferrer">查看来源</a>
+            </div>
+          </article>
+
+          <article class="demo-card is-candidate">
+            <div class="creator-head">
+              <img class="creator-avatar" src="assets/creators/haibei-family.jpeg" alt="海北老师头像">
+              <div>
+                <span class="creator-tag">家庭教育 / 家长沟通</span>
+                <h3>鸣华鑫文化（海北老师）</h3>
+              </div>
+            </div>
+            <div class="demo-meta">公开信息：简介为 80 后 90 后家长之友海北老师，适合家长痛点、晚辅方法和陪伴焦虑转译。</div>
+            <div class="creator-stats">
+              <div class="stat-pill"><strong>65.8万</strong><span>粉丝</span></div>
+              <div class="stat-pill"><strong>857.4万</strong><span>获赞</span></div>
+            </div>
+            <dl>
+              <dt>内容任务</dt>
+              <dd>把官方“晚辅步步高”转成家长语言：为什么三四年级开始需要从陪写作业转向陪孩子建立方法。</dd>
+              <dt>S10示例选题</dt>
+              <dd>《三四年级之后，家长最该从“盯作业”变成“搭方法”》</dd>
+            </dl>
+            <div class="source-row">
+              <span>抖音公开页</span>
+              <a href="https://www.douyin.com/user/MS4wLjABAAAATSaw6JrEe2j9dcDmyh8ncVQAgG4_s6TOa87PNJwbiBo" target="_blank" rel="noreferrer">查看来源</a>
+            </div>
+          </article>
+
+          <article class="demo-card is-candidate">
+            <div class="creator-head">
+              <img class="creator-avatar" src="assets/creators/hanba-parent-tech.jpeg" alt="硅谷工程师憨爸头像">
+              <div>
+                <span class="creator-tag">家长 / 科学教育</span>
+                <h3>硅谷工程师憨爸</h3>
+              </div>
+            </div>
+            <div class="demo-meta">公开信息：简介提到硅谷工程师爸爸、中国科技馆专家志愿者，内容方向覆盖数学、英语和科学教育。</div>
+            <div class="creator-stats">
+              <div class="stat-pill"><strong>34.1万</strong><span>粉丝</span></div>
+              <div class="stat-pill"><strong>184.0万</strong><span>获赞</span></div>
+            </div>
+            <dl>
+              <dt>内容任务</dt>
+              <dd>适合从理工科家长视角讲“学习工具如何服务孩子理解”，弱化硬广感，强化方法感和家长决策信任。</dd>
+              <dt>S10示例选题</dt>
+              <dd>《一个理工科爸爸看学习机：我不看功能有多少，我看它能不能让孩子自己走下一步》</dd>
+            </dl>
+            <div class="source-row">
+              <span>抖音公开页</span>
+              <a href="https://www.douyin.com/user/MS4wLjABAAAAXHRyHWuhhIseiIVrO5twePIxc6sYjlvdqSRXLLeiMaA" target="_blank" rel="noreferrer">查看来源</a>
+            </div>
+          </article>
+
+          <article class="demo-card is-candidate">
+            <div class="creator-head">
+              <img class="creator-avatar" src="assets/creators/wuzhuren-books.jpeg" alt="吴主任-选书超严格头像">
+              <div>
+                <span class="creator-tag">学习资源 / 选购决策</span>
+                <h3>吴主任-选书超严格</h3>
+              </div>
+            </div>
+            <div class="demo-meta">公开信息：认证为作家，简介提到已帮大量家庭选书，适合从学习资源和选购逻辑切入。</div>
+            <div class="creator-stats">
+              <div class="stat-pill"><strong>53.5万</strong><span>粉丝</span></div>
+              <div class="stat-pill"><strong>193.2万</strong><span>获赞</span></div>
+            </div>
+            <dl>
+              <dt>内容任务</dt>
+              <dd>沉淀搜索型内容：学习机有没有必要买、三四年级怎么选、如何避免吃灰，适合抖音种草后的小红书决策补位。</dd>
+              <dt>S10示例选题</dt>
               <dd>《三四年级学习机怎么选？我更关心孩子会不会主动打开》</dd>
-              <dt>S10切入</dt>
-              <dd>从家长选购纠结切入，对比“功能很多”与“能不能进入晚辅流程”，突出 S10 的孩子爱用和晚辅场景。</dd>
-              <dt>合作形式</dt>
-              <dd>图文/短视频笔记 + 评论区问答，重点做收藏、搜索和长期决策资产。</dd>
             </dl>
+            <div class="source-row">
+              <span>抖音公开页</span>
+              <a href="https://www.douyin.com/user/MS4wLjABAAAAoc1HqqCReXdH2zbm-RcsCjCUS1wIlsYQJUYm4pInbMs" target="_blank" rel="noreferrer">查看来源</a>
+            </div>
           </article>
 
-          <article class="demo-card">
-            <div class="demo-top">
-              <h3>护眼 / 数码测评垂类达人</h3>
-              <span class="demo-badge">D01</span>
+          <article class="demo-card is-candidate">
+            <div class="creator-head">
+              <img class="creator-avatar" src="assets/creators/li-yongle.jpeg" alt="李永乐老师头像">
+              <div>
+                <span class="creator-tag">头部教育科普 / 可选放大</span>
+                <h3>李永乐老师</h3>
+              </div>
             </div>
-            <div class="demo-meta">建议画像：护眼科普 / 儿童数码 / 学习桌面测评 / 10-50万粉 / 抖音+小红书</div>
+            <div class="demo-meta">公开信息：科普自媒体，简介含北大物理系本科、清华大学电子工程系硕士等教育背景。</div>
+            <div class="creator-stats">
+              <div class="stat-pill"><strong>1691.1万</strong><span>粉丝</span></div>
+              <div class="stat-pill"><strong>4514.0万</strong><span>获赞</span></div>
+            </div>
             <dl>
               <dt>内容任务</dt>
-              <dd>把护眼从“参数卖点”讲成家长在晚辅长时间使用场景中的安心理由。</dd>
-              <dt>示例选题</dt>
-              <dd>《孩子每天晚辅都要看屏幕，家长真正该看哪些护眼细节？》</dd>
-              <dt>S10切入</dt>
-              <dd>结合晚辅高频使用、合理使用习惯和屏幕体验，降低“学习机会不会伤眼”的担忧。</dd>
-              <dt>合作形式</dt>
-              <dd>测评视频 + 小红书收藏型笔记，适合成为总部“护眼安心”内容资产。</dd>
+              <dd>不建议首期直接作为主线投放。更适合在前期验证“晚辅场景 + AI 情景学”内容模型后，用作节点型教育科普声量放大。</dd>
+              <dt>S10示例选题</dt>
+              <dd>《AI 为什么能帮助孩子理解一个知识点？关键不是替孩子做题》</dd>
             </dl>
-          </article>
-
-          <article class="demo-card">
-            <div class="demo-top">
-              <h3>BBK 老品牌信任 / 老用户家庭 KOC</h3>
-              <span class="demo-badge">B01</span>
+            <div class="source-row">
+              <span>抖音公开页</span>
+              <a href="https://www.douyin.com/user/MS4wLjABAAAA6Y_2dEfQL7RUr6515qVJXINmruMWlL99pxhdMVjJfqs" target="_blank" rel="noreferrer">查看来源</a>
             </div>
-            <div class="demo-meta">建议画像：步步高 / 小天才老用户家庭、三四年级孩子家庭、真实体验型 KOC</div>
-            <dl>
-              <dt>内容任务</dt>
-              <dd>把 BBK 的老品牌信任讲成“专业回归”，而不是单纯情怀。</dd>
-              <dt>示例选题</dt>
-              <dd>《从我们小时候知道步步高，到现在给孩子选晚辅工具，我更看重什么？》</dd>
-              <dt>S10切入</dt>
-              <dd>从三十年教材同步、儿童教育电子经验、孩子真实需求切入，讲品牌为什么重新回到家庭晚辅。</dd>
-              <dt>合作形式</dt>
-              <dd>真实体验 + 口碑故事，适合第三阶段星光计划和长期 KOC 池。</dd>
-            </dl>
           </article>
         </div>
 
         <div class="demo-note">
-          <strong>执行说明：</strong>这组 DEMO 用于向总部展示“达人合作不是抽象投放，而是不同内容任务的组合”。正式执行前仍需按总部口径、平台数据、历史内容、报价、档期、评论区风险和授权复用条件做二次筛选。
+          <strong>执行说明：</strong>这组名单是“真实候选池”，不是最终采购清单。正式执行前建议通过巨量星图、蒲公英或平台后台二次复核粉丝、互动、报价、档期、历史商业内容、未成年人出镜授权、评论区风险和内容复用权限。KOC 层不建议靠公开搜索硬凑，应通过“步步高星光计划”定向招募三四年级真实家庭、BBK / 小天才老用户家庭和学习桌面内容创作者，优先看真实晚辅场景完整度，而不是单看粉丝数。
         </div>
       </div>
     </section>
